@@ -1,6 +1,7 @@
 package part1;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Optional;
 
 public class MyList<T> implements SimpleList<T>{
@@ -49,7 +50,7 @@ public class MyList<T> implements SimpleList<T>{
     @Override
     public void addAll(SimpleList<T> list) {
         for (int i = 0; i < list.size(); i++) {
-            T myItem = (T) list.get(i);
+            T myItem = (T) list.get(i).get();
             add(myItem);
         }
     }
@@ -89,5 +90,6 @@ public class MyList<T> implements SimpleList<T>{
     private void rangeCheck(int index) {
         if (index > size || index < 0) throw new IndexOutOfBoundsException();
     }
+
 
 }
